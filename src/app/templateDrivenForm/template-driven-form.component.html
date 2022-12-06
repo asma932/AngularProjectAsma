@@ -1,0 +1,61 @@
+
+<div class="container card">
+    <h5 class="card-title" style="color:brown" >Informations générales</h5> 
+<form action="" #paimentForm="ngForm" (ngSubmit)="save(paimentForm)">
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control"  type="text" name="nom" id="nom" required ngModel   #nom="ngModel" >   
+       <span style="color: red;" *ngIf="nom.invalid && nom.touched && nom.errors?.['required']">Le nom est requis</span> 
+        
+    </div><br>
+
+    <div class="form-group">
+        <label for="email">Email :</label>
+        <input class="form-control"  type="email" name="Email" id="email" required ngModel   #email="ngModel"  pattern="[a-z.]+[a-z]+@+[a-z]{3}"   > 
+        <span style="color: red;" *ngIf="email.invalid && email.touched && email.errors?.['required']">Adresse email est requis</span>  
+        <span style="color: red;" *ngIf="email.errors?.['pattern']">Email Format invalid</span> 
+    </div><br>
+    <div class="card">
+       
+        <h5 class="card-title" style="color:brown"> Informations de payment</h5> 
+        
+        <div class="form-group">
+            <label for="typeCarte"> Type de carte </label>
+            <input class="form-control"  type="text" name="typeC" id="typeC" required ngModel   #typeC="ngModel" >   
+           <span style="color: red;" *ngIf="typeC.invalid && typeC.touched && typeC.errors?.['required']">Type Carteest requis</span> 
+            
+        </div><br>
+        <div class="form-group">
+            <label for="NumCarte">Numéro carte</label>
+            <input class="form-control"  type="text" name="NumC" id="NumC" required ngModel   #NumC="ngModel" >   
+           <span style="color: red;" *ngIf="NumC.invalid && NumC.touched && NumC.errors?.['required']">Numéro carte est requis</span> 
+            
+        </div><br>
+        <div class="form-group">
+            <label for="DateExp">Date Expiration</label>
+            <input class="form-control"  type="text" name="DateE" id="DateE" required ngModel   #DateE="ngModel" >   
+           <span style="color: red;" *ngIf="DateE.invalid && DateE.touched && DateE.errors?.['required']">Date Expiration est requis</span> 
+            
+        </div><br>
+
+
+        <div class="form-group">
+            <label for="code">Code</label>
+            <!---->
+         
+            <input class="form-control"  [disabled]="!typeC.valid || !NumC.valid || !DateE.valid" type="text"  minlength="16" name="code" id="code" required ngModel   #code="ngModel" >   
+           
+            <span style="color: red;" *ngIf="code.invalid && code.touched && code.errors?.['required']">Code est requis</span> 
+           <span style="color: red;" *ngIf="code.invalid && code.touched && code.errors?.['minlength']"> Entrez au moins 16 chiffres</span>
+        </div><br>
+    
+    </div><br>
+    <div class="form-group ">
+        <div class="d-flex justify-content-center">
+        <input  [disabled]="!paimentForm.valid" class="form-control " type="submit" value="Ajouter" class="btn btn-primary">
+    </div>
+         </div>
+</form>
+
+</div>
+
