@@ -12,6 +12,7 @@ export class TemplateDrivenFormComponent implements OnInit {
  
   ngOnInit(): void {
   }
+  titre="Atelier driven form (asma ben brahim)"
 
   save(form:NgForm){
     console.log(form);

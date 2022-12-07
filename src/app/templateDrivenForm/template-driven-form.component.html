@@ -1,6 +1,6 @@
-
+<h1  style ="color:#370a12; text-align:center;">{{titre}}</h1>
 <div class="container card">
-    <h5 class="card-title" style="color:brown" >Informations générales</h5> 
+    <h5 class="card-title" style="color:brown" > Informations générales</h5> 
 <form action="" #paimentForm="ngForm" (ngSubmit)="save(paimentForm)">
     <div class="form-group">
         <label for="nom">Nom :</label>
@@ -11,7 +11,7 @@
 
     <div class="form-group">
         <label for="email">Email :</label>
-        <input class="form-control"  type="email" name="Email" id="email" required ngModel   #email="ngModel"  pattern="[a-z.]+[a-z]+@+[a-z]{3}"   > 
+        <input class="form-control"  type="email" name="Email" id="email" required ngModel   #email="ngModel"  pattern="[a-zA-Z.]+[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,3}"   > 
         <span style="color: red;" *ngIf="email.invalid && email.touched && email.errors?.['required']">Adresse email est requis</span>  
         <span style="color: red;" *ngIf="email.errors?.['pattern']">Email Format invalid</span> 
     </div><br>
@@ -58,4 +58,3 @@
 </form>
 
 </div>
-
